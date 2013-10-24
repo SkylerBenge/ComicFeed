@@ -1,0 +1,4 @@
+<% @data.xpath("//item/description").each do |x| %>
+  <%= x.text.html_safe %>
+  <hr>
+<% end %>
