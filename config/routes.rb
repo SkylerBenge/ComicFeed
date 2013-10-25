@@ -6,6 +6,10 @@ ComicFeed::Application.routes.draw do
   resources :sessions
 
   get "/logout", to: "sessions#destroy"
+  get "/mycomics", to: "comics#show"
+  get "/home", to: "comics#index"
+
+  post "/comics", to: "comics#create"
 
   get '/comic1', to: 'comics#comic1', as: 'comic1'
   get '/comic2', to: 'comics#comic2', as: 'comic2'

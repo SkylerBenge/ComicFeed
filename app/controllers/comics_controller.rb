@@ -6,6 +6,19 @@ class ComicsController < ApplicationController
 
   end
 
+  def create
+    comic_links = params[:comics]
+    comic = current_user.comics.create()
+    comic_links.each do |comic_link|
+      comic.links.create(url: comic_link)
+    end
+    render  nothing: true, status: 201
+  end
+
+  def show
+    @comics = current_user.comics.limit(10).offset(current_user.comics.length - 10)
+  end
+
   def comic1
     url = "http://xkcd.com/rss.xml"
     @data = Nokogiri::XML(open(url))

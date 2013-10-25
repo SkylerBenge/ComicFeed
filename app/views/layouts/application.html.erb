@@ -6,14 +6,21 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body onload="sayHello()">
 <%= favicon_link_tag 'favicon.ico' %>
 
 <%= flash[:errors] if flash[:errors] %>
 <% if current_user %>
+  <%= link_to "Home", home_path %>
+  <%= link_to "My Comics", mycomics_path %>
   <%= link_to "Logout", logout_path %>
 <% end %>
-
+<script>
+  $(function(){
+    addEvent();
+  })
+</script>
 <%= yield %>
 
 </body>

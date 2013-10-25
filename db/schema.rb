@@ -11,9 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023221146) do
+ActiveRecord::Schema.define(version: 20131025031438) do
 
   create_table "comics", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "url"
+    t.integer  "user_id"
+  end
+
+  create_table "links", force: true do |t|
+    t.string   "url"
+    t.integer  "comic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

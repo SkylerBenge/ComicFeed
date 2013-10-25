@@ -1,3 +1,11 @@
+<head>
+  <style>
+    input{
+      margin-left: 500px;
+    }
+  </style>
+</head>
+<input id="favorite" type="submit" value="Add to favorites"> <br>
 <% @data.xpath("//item/description").each do |x| %>
   <%= x.text.html_safe %>
   <hr>
